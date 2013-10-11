@@ -1,0 +1,19 @@
+<% title "Uploads" %>
+
+<table>
+  <tr>
+    <th>Uploaded Files</th>
+  </tr>
+  <% for upload in @uploads %>
+    <tr>  
+      <td><%= link_to upload.file_name, download_url(upload) %></td>  
+      <td><%= link_to "Show", upload %></td>  
+      <td><%= link_to "Edit", edit_upload_path(upload) %></td>  
+      <td><%= link_to "Destroy", upload, method: :delete, data: { confirm: "Are you sure?" } %></td>  
+    </tr>
+  <% end %>
+</table>
+
+<p><%= link_to "New Upload", new_upload_path %></p>
+
+
