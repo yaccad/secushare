@@ -22,6 +22,7 @@ doc/
 !app/views/uploads
 Capfile
 deploy.rb
+user_mailer.rb
 
 #Initializers
 setup_mail.rb
