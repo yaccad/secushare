@@ -9,7 +9,7 @@ class Upload < ActiveRecord::Base
                  :path => "#{::Rails.root}/uploads/:id/:basename.:extension"  
    
 
-  validates_attachment_size :uploaded_file, :less_than => 10.megabytes    
+  validates_attachment_size :uploaded_file, :less_than => 50.megabytes    
   validates_attachment_presence :uploaded_file
   
   def file_name
