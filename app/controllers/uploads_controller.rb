@@ -2,6 +2,10 @@ class UploadsController < ApplicationController
    before_filter :authenticate_user!
   def index
     @uploads = current_user.uploads
+    respond_to do |format|
+          format.html # index.html.erb
+          format.json { render json: @uploads}
+    end
   end
 
   def show
