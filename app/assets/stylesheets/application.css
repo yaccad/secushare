@@ -256,15 +256,21 @@ a {
 }
 
 .footer_wrapper {
+  border: 0px solid orange;
   width: 880px;
   margin: 0 auto;
   overflow: hidden;
   padding: 20px 0;
+  vertical-align: top;
 }
 
 .copy {
+	border: 0px solid green;
+	margin-top:-50px;
+	width:400px;
 	color:#999999;
 	text-shadow: 1px 1px 5px #FFFFFF;
+	float: right;
 	text-align: right;
 }
 
