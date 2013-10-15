@@ -3,6 +3,10 @@ class FoldersController < ApplicationController
   
   def index
     @folders = current_user.folders
+     respond_to do |format|
+            format.html # index.html.erb
+            format.json { render json: @folders}
+     end
   end
 
   def show
