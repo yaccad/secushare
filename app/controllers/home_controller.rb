@@ -15,10 +15,15 @@ class HomeController < ApplicationController
   
   #this action is for viewing folders  
   def browse
-   	# first find the current folder within own folders
+   if user_signed_in?
+    # first find the current folder within own folders
    	@current_folder = current_user.folders.find_by_id(params[:folder_id])
    	@is_this_folder_being_shared = false if @current_folder # just an instance variable to help hiding buttons on view
-
+   	
+    # find shared folders where folder_id is equal to current folder
+   	@user = User.all
+   	@shared_folders = SharedFolder.all.where(folder_id: @current_folder)
+   
      # if not found in own folders, find it in being_shared_folders
      if @current_folder.nil?
        folder = Folder.find_by_id(params[:folder_id])
@@ -39,10 +44,13 @@ class HomeController < ApplicationController
 
    	  render :action => "index"
    	else
+   	  
    	  flash[:error] = "You have no permission to access this area!!"
    	  redirect_to root_url
-   	end
+  	end
    end
+  end
+  
    # this handles ajax request for inviting others to share folders 
   def share
      # first we need to separate the emails with a comma

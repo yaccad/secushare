@@ -217,6 +217,40 @@ a {
 	border:1px solid #FFCFD1;
 }
 
+.shared_folders {
+	float:;
+	color:#000000;
+	font-size: 12px;
+	font-weight:bold;
+	font-style:italic;
+	border:0px solid #FF8F93;
+	margin-bottom:20px;
+	margin-left: 300px;
+	
+}
+
+.shared_emails {
+	float:right;
+	font-size:11px;
+	margin-top:-15px;
+	
+}
+
+.shared_emails .delete a{
+	margin-left:-200px;
+	color:#BF0B12;
+	border:1px solid #FFCFD1;
+	
+}
+
+#sharing_notice {
+  color: #1D96EF;
+  font-size:18px;
+  font-weight: bold;
+  border: solid 0px #6C6;
+  margin-bottom:20px;
+}
+
 .upload_details .delete a:hover{
 	color:#BF0B12;
 	border:1px solid #FF8F93;

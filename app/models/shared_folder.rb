@@ -10,7 +10,9 @@ class SharedFolder < ActiveRecord::Base
   #for the folder being shared  
   belongs_to :folder  
 
-
+##TESTING
+ # has_many :shared_emails_to_others, :class_name => "SharedFolder", :foreign_key => "shared_user_id", :dependent => :destroy
+ 
   private
 
   def shared_folder_params

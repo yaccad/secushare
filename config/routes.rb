@@ -2,7 +2,7 @@ Secushare::Application.routes.draw do
   
   resources :folders
   resources :uploads
-  
+  resources :shared_folders
   
   devise_for :users
  
