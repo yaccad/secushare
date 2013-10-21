@@ -48,6 +48,20 @@ a {
 
 #login_user_status {
   float: right;
+  font-weight:bold;
+  text-decoration: none;
+  color:orange;
+
+}
+#login_user_status a:link {
+	font-weight: normal;
+    text-decoration: underline;
+}
+#login_user_status a:visited {
+	color: #1D96EF;
+	font-weight: bold;
+    text-shadow: 2px 2px 5px #777777;
+    text-decoration: underline;
 }
 
 #flash_notice, #flash_error, #flash_alert {

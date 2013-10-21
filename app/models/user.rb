@@ -7,7 +7,7 @@ class User < ActiveRecord::Base
   validates :email, :presence => true, :uniqueness => true
          
   has_many :uploads
-  has_many :folders
+  has_many :folders, :dependent => :destroy
   
   # this is for folders which the user has shared
    has_many :shared_folders, :dependent => :destroy
