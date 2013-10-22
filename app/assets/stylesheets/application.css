@@ -326,11 +326,19 @@ a {
   vertical-align: top;
 }
 
+.seal {
+	margin-left:20px;
+}
+
+
 .copy {
 	border: 0px solid green;
 	margin-top:-50px;
+	margin-right:20px;
 	width:400px;
-	color:#999999;
+	color:orange;
+	font-weight:none;
+	font-style:italic;
 	text-shadow: 1px 1px 5px #FFFFFF;
 	float: right;
 	text-align: right;
