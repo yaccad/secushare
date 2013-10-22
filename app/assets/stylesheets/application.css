@@ -14,10 +14,11 @@ body {
 .logo a {
   color: #338DCF;
   float: left;
-  font-size: 48px;
+  font-size: 32px;
   font-weight: bold;
   text-shadow: 2px 2px 5px #777777;
   text-decoration: none;
+  margin-left:20px;
 }
 .logo, b {
 	color:#999999;
