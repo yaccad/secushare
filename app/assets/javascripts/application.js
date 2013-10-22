@@ -16,6 +16,7 @@
 //= require jquery.turbolinks
 //= require_tree .
 $(function () {   
+	
     //open the invitation form when a share button is clicked  
     $( ".share a" )  
             .button()  
@@ -62,4 +63,12 @@ $(function () {
                 return false;  
             });  
 });  
+
+$(function() {
+ 
+    $("form").bind("keypress", function(e) {
+            if (e.keyCode == 13) return false;
+      });
+ 
+});
 
