@@ -24,6 +24,7 @@ Secushare::Application.routes.draw do
   #for sharing the folder
   match "home/share" => "home#share", via: [:post]
   
+  
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

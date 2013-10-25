@@ -21,7 +21,7 @@ class HomeController < ApplicationController
    	@is_this_folder_being_shared = false if @current_folder # just an instance variable to help hiding buttons on view
    	
     # find shared folders where folder_id is equal to current folder
-   	@user = User.all
+   	#@user = User.all
    	@shared_folders = SharedFolder.all.where(folder_id: @current_folder)
    
      # if not found in own folders, find it in being_shared_folders
