@@ -68,3 +68,5 @@ gem "paperclip", '<= 3.5.2'
 gem "acts_as_tree"
 
 gem "mocha", group: :test
+
+gem "net-ssh", '<= 2.7.0'
