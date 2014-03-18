@@ -58,12 +58,12 @@ end
 # Use debugger
 # gem 'debugger', group: [:development, :test]
 #for user authentication  
-gem 'devise'  
+gem 'devise', '<= 3.1.1'
   
 #for layout and helpers generations  
 gem "nifty-generators", :group => :development  
 #for uploading files  
-gem "paperclip"
+gem "paperclip", '<= 3.5.2'
 #for nested folders
 gem "acts_as_tree"
 
