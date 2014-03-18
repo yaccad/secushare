@@ -2,7 +2,7 @@ class Upload < ActiveRecord::Base
 
   belongs_to :user
   belongs_to :folder  
-
+  include Rails.application.routes.url_helpers
   #set up "uploaded_file" field as attached_file (using Paperclip)  
   has_attached_file :uploaded_file,  
                  :url => "/uploads/get/:id",  
@@ -20,5 +20,14 @@ class Upload < ActiveRecord::Base
    uploaded_file_file_size
   end
   
+  def to_jq_upload
+    {
+      "name" => read_attribute(:uploaded_file_file_name),
+      "size" => read_attribute(:uploaded_file_file_size),
+      "url" => uploaded_file.url(:original),
+      "delete_url" => upload_path(self),
+      "delete_type" => "DELETE" 
+    }
+  end
   
 end

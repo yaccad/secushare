@@ -12,6 +12,8 @@
 //
 //= require jquery
 //= require jquery_ujs
+//= require twitter/bootstrap
+//= require jquery-fileupload
 //= require turbolinks
 //= require jquery.turbolinks
 //= require_tree .
@@ -36,7 +38,7 @@ $(function () {
                 //Add the dialog box loading here  
 				//the dialog box customization  
 				$( "#invitation_form" ).dialog({  
-				    height: 300,  
+				    height: 400,  
 				    width: 600,  
 				    modal: true,  
 				    buttons: {  

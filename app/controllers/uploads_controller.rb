@@ -4,7 +4,7 @@ class UploadsController < ApplicationController
     @uploads = current_user.uploads
     respond_to do |format|
           format.html # index.html.erb
-          format.json { render json: @uploads}
+          format.json { render json: @uploads.map{|upload| upload.to_jq_upload } }
     end
   end
 
@@ -21,30 +21,54 @@ class UploadsController < ApplicationController
     end      
   end
 
-  def create
-    
-    @upload = current_user.uploads.build(upload_params)
-    if @upload.save
-      flash[:notice] = "Successfully uploaded the file." 
-      @shared_folders = SharedFolder.all.where(folder_id: @upload.folder)
-      @shared_folders.each do |shared_folder|
-       # now we need to send email to recipients
-        UserMailer.new_file_shared(shared_folder).deliver
-        
-      end
-      
-       if @upload.folder #checking if we have a parent folder for this file  
-         redirect_to browse_path(@upload.folder)  #then we redirect to the parent folder  
-       else  
-         redirect_to root_url  
-       end   
-           
-      else  
-       render :action => 'new'  
-      end  
-     
-    end
+  # def create
+  #   
+  #   @upload = current_user.uploads.build(upload_params)
+  #   if @upload.save
+  #     flash[:notice] = "Successfully uploaded the file." 
+  #     @shared_folders = SharedFolder.all.where(folder_id: @upload.folder)
+  #     @shared_folders.each do |shared_folder|
+  #      # now we need to send email to recipients
+  #       UserMailer.new_file_shared(shared_folder).deliver
+  #       
+  #     end
+  #     
+  #      if @upload.folder #checking if we have a parent folder for this file  
+  #        redirect_to browse_path(@upload.folder)  #then we redirect to the parent folder  
+  #      else  
+  #        redirect_to root_url  
+  #      end   
+  #          
+  #     else  
+  #      render :action => 'new'  
+  #     end  
+  # end
+    def create
+      @upload = current_user.uploads.build(upload_params)
 
+      respond_to do |format|
+        if @upload.save
+          @shared_folders = SharedFolder.all.where(folder_id: @upload.folder)
+          @shared_folders.each do |shared_folder|
+            UserMailer.new_file_shared(shared_folder).deliver
+          end
+          format.html {
+            render :json => [@upload.to_jq_upload].to_json,
+            :content_type => 'text/html',
+            :layout => false
+          }
+          format.json { render json: {files: [@upload.to_jq_upload]}, status: :created, location: @upload }
+       
+        else
+          format.html { render action: "new" }
+          format.json { render json: @upload.errors, status: :unprocessable_entity }
+        end
+      end
+    end
+ 
+ 
+ 
+ 
   def edit
     @upload = current_user.uploads.find(params[:id])
   end

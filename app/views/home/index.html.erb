@@ -68,7 +68,7 @@
           <div class="rename">
             <%= link_to "Rename", rename_folder_path(folder) unless @is_this_folder_being_shared %>
           </div>
-          <div class="delete">
+          <div class="delete-btn">
             <%= link_to "Delete", folder,
                     data: { confirm: 'Are you sure to delete the folder and all of its contents?' }, :method => :delete unless @is_this_folder_being_shared %>
           </div>
@@ -87,7 +87,7 @@
           <div class="download">
             <%= link_to "Download", download_url(upload) %>
           </div>
-          <div class="delete">
+          <div class="delete-btn">
             <%= link_to "Delete", upload, data: { confirm: 'Are you sure?' }, :method => :delete unless @is_this_folder_being_shared %>
           </div>
         </div>
