@@ -284,6 +284,11 @@ a {
   margin-bottom:20px;
 }
 
+#data_usage {
+  color:#999999;
+  text-shadow: 1px 1px 15px #777777;
+}
+
 .upload_details .delete a:hover{
 	color:#BF0B12;
 	border:1px solid #FF8F93;
@@ -349,4 +354,93 @@ a {
 	text-align: right;
 	text-shadow: 1px 1px 5px orange;
 }
+.meter { 
+	height: 8px;  /* Can be anything */
+	width:160px;
+	position: relative;
+	background: #999;
+	-moz-border-radius: 25px;
+	-webkit-border-radius: 25px;
+	border-radius: 25px;
+	border:1px;
+	padding: 0px;
+	-webkit-box-shadow: inset 0 -1px 1px rgba(255,255,255,0.3);
+	-moz-box-shadow   : inset 0 -1px 1px rgba(255,255,255,0.3);
+	box-shadow        : inset 0 -1px 1px rgba(255,255,255,0.3);
+}
+.meter > span {
+	display: block;
+	height: 100%;
+	   -webkit-border-top-right-radius: 8px;
+	-webkit-border-bottom-right-radius: 8px;
+	       -moz-border-radius-topright: 8px;
+	    -moz-border-radius-bottomright: 8px;
+	           border-top-right-radius: 8px;
+	        border-bottom-right-radius: 8px;
+	    -webkit-border-top-left-radius: 20px;
+	 -webkit-border-bottom-left-radius: 20px;
+	        -moz-border-radius-topleft: 20px;
+	     -moz-border-radius-bottomleft: 20px;
+	            border-top-left-radius: 20px;
+	         border-bottom-left-radius: 20px;
+	background-color: rgb(43,194,83);
+	background-image: -webkit-gradient(
+	  linear,
+	  left bottom,
+	  left top,
+	  color-stop(0, rgb(43,194,83)),
+	  color-stop(1, rgb(84,240,84))
+	 );
+	background-image: -webkit-linear-gradient(
+	  center bottom,
+	  rgb(43,194,83) 37%,
+	  rgb(84,240,84) 69%
+	 );
+	background-image: -moz-linear-gradient(
+	  center bottom,
+	  rgb(43,194,83) 37%,
+	  rgb(84,240,84) 69%
+	 );
+	background-image: -ms-linear-gradient(
+	  center bottom,
+	  rgb(43,194,83) 37%,
+	  rgb(84,240,84) 69%
+	 );
+	background-image: -o-linear-gradient(
+	  center bottom,
+	  rgb(43,194,83) 37%,
+	  rgb(84,240,84) 69%
+	 );
+	-webkit-box-shadow: 
+	  inset 0 2px 9px  rgba(255,255,255,0.3),
+	  inset 0 -2px 6px rgba(0,0,0,0.4);
+	-moz-box-shadow: 
+	  inset 0 2px 9px  rgba(255,255,255,0.3),
+	  inset 0 -2px 6px rgba(0,0,0,0.4);
+	position: relative;
+	overflow: hidden;
+}
+.blue > span {
+	background-color: #338DCF;
+	background-image: -webkit-gradient(linear,left top,left bottom,color-stop(0, #338DCF),color-stop(1, #338DCF));
+	background-image: -webkit-linear-gradient(top, #338DCF, #338DCF); 
+        background-image: -moz-linear-gradient(top, #338DCF, #338DCF);
+        background-image: -ms-linear-gradient(top, #338DCF, #338DCF);
+        background-image: -o-linear-gradient(top, #338DCF, #338DCF);
+}
 
+.red > span {
+	background-color: #f0a3a3;
+	background-image: -webkit-gradient(linear,left top,left bottom,color-stop(0, #f0a3a3),color-stop(1, #f42323));
+	background-image: -webkit-linear-gradient(top, #f0a3a3, #f42323);
+        background-image: -moz-linear-gradient(top, #f0a3a3, #f42323);
+        background-image: -ms-linear-gradient(top, #f0a3a3, #f42323);
+        background-image: -o-linear-gradient(top, #f0a3a3, #f42323);
+}
+.divider {
+margin-bottom: 0.6em;
+border-bottom: 1px solid #aaa;
+padding: 0.5em 0 0.17em 0;
+color: #000;
+font: normal 150%/1.5 sans-serif;
+}

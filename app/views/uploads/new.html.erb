@@ -1,6 +1,14 @@
 <% title "Upload a file" %>
 <%= render :partial => "home/breadcrumbs" %>
 
+  	<div id="data_usage">
+		<% i = current_user.uploads.sum(:uploaded_file_file_size) %>	
+  		 
+		 
+  	</div>
+	<!-- Calculate width -->
+	<% w = ((i/1048000) * 100)/1000 %>
+	<% unless  w >= 100 %> 
   
   <%= form_for @upload, :html => { :multipart => true, :id => "fileupload"  } do |f| %>
     <!-- The fileupload-buttonbar contains buttons to add/delete files and start/cancel the upload -->
@@ -65,6 +73,7 @@
 </script>
 
 <!-- The template to display files available for upload -->
+
 <script id="template-upload" type="text/x-tmpl">
   {% for (var i=0, file; file=o.files[i]; i++) { %}
   <tr class="template-upload fade">
@@ -95,6 +104,8 @@
   </tr>
   {% } %}
 </script>
+  
+
 <!-- The template to display files available for download -->
 <script id="template-download" type="text/x-tmpl">
   {% for (var i=0, file; file=o.files[i]; i++) { %}
@@ -147,7 +158,11 @@
           template[0].offsetWidth;
         template.addClass('in');
         $('#loading').remove();
+		
       });
+  
 
   });
+  
 </script>
+<% end %>

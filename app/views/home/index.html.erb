@@ -4,7 +4,18 @@
 
 <% else %>
 
+
   <div id="menu">
+  	
+	
+  	<div id="data_usage">
+		<% i = current_user.uploads.sum(:uploaded_file_file_size) %>	
+  		 
+		 
+  	</div>
+	<!-- Calculate width -->
+	<% w = ((i/1048000) * 100)/1000 %>
+	<% unless  w >= 100 %> 
 	
     <% unless @is_this_folder_being_shared %>
       <ul id="top_menu">
@@ -25,18 +36,21 @@
              <% end %>
 			<% end %>
 			</div>
+		
         <li><%= link_to "Upload", new_sub_file_path(@current_folder) %></li>
         <li><%= link_to "New Folder", new_sub_folder_path(@current_folder) %></li>
+		
         <% else %>
 
         <li><%= link_to "Upload", new_upload_path %></li>
         <li><%= link_to "New Folder", new_folder_path %></li>
+		
         <% end %>
       </ul>
     <% else %>
       <h3>This folder is being shared to you by <%= @current_folder.user.name %></h3>
     <% end %>
-
+<% end %>
   </div>
   <%= render :partial => "breadcrumbs" %>
   <div class="upload_list_header">

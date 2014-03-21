@@ -18,6 +18,7 @@
           <%= link_to current_user.email, edit_user_registration_path %>
           |
           <%= link_to "Sign out", destroy_user_session_path, :method => :delete %>
+		  
         <% else %>
           <em>Not signed in.</em>
           <%= link_to 'Sign in', new_user_session_path %>
@@ -26,7 +27,41 @@
         <% end %>
       </div>
     </div>
+	
     <div id="container">
+		
+		 <% if user_signed_in? %> 
+	  	<!-- Data Usage -->
+	  	<div id="data_usage">
+			<% i = current_user.uploads.sum(:uploaded_file_file_size) %>	
+	  		 <%= number_to_human_size(i) %> of <%= current_user.max_data_usage %> GB used
+			 
+	  	</div>
+		<!-- Calculate width -->
+		<% w = ((i/1048000) * 100)/1000 %>
+		
+			<% if w <= 90 %>
+				<div class="meter">
+					<span style="<%="width:#{w}%;"%>"></span>
+				</div>
+			<% else %>
+				<div class="meter red">
+					<span style="<%="width:#{w}%;"%>"></span>
+				</div>
+	
+			<% end %>
+			
+			<% if  w >= 100 %>
+			<br>
+				<div id="flash_alert">
+				You have exceeded your maximum data plan. Time for some cleanup!
+				</div>
+			<% else %>
+				
+			<% end %>
+					<div class="divider"></div>
+		<% end %>
+
       <% flash.each do |name, msg| %>
         <%= content_tag :div, msg, :id => "flash_#{name}" %>
       <% end %>

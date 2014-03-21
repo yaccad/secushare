@@ -19,6 +19,7 @@ class Upload < ActiveRecord::Base
   def file_size
    uploaded_file_file_size
   end
+
   
   def to_jq_upload
     {

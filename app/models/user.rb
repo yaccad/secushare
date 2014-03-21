@@ -56,6 +56,14 @@ class User < ActiveRecord::Base
       return false
     end
     
+    def data_usage
+      current_user_data_usage = current_user.uploads.sum(:uploaded_file_file_size)
+    end
+    
+    def max_data_usage
+      uploaded_file_max_data_usage  = 1
+    end
+    
     private
 
     def user_params
